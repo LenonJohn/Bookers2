@@ -1,17 +1,37 @@
 
-     <% flash.each do |name, msg| %>
-          <%= content_tag :p, msg, class: name %>
-    
+<div class="container px-5 px px-sm-0">
+    <div class="row">
+        <div class="col-md-3">
+            <%= render "books/userinfo", user: @book.user %>
+            <%= render "books/newbook", book: @book %>
+        </div>
 
-<p><strong>Title:<strong>
-<%= @book.title %></p>
 
-<p><strong>Body:<strong>
-<%= @book.body %></p>
+        <div class="col-md-8 offset-md-1">
+            <h2>Book detail</h2>
 
-<tr>
-    <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-    <td>|</td>
-    <td><%= link_to "Back", "/books" %></td>
-</tr>
-     <% end %>
+                <table class="table table-hover table-inverse">
+
+
+                    <tbody>
+                        <tr>
+
+                                <td><%= link_to user_path(@user) do %><p><%= attachment_image_tag(@book.user, :profile_image, size:"40x40", fallback: "no_image.jpg") %></p><p><%= @book.user.name %></p>
+                                <% end %></td>
+                                <td><%= link_to @book.title, book_path(@book) %></td>
+                                <td><%= @book.body %></td>
+                                <td><%= link_to "edit", edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
+                                <td><%= link_to "Destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %></td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+
+
+
+        </div>
+   </div>
+</div>
