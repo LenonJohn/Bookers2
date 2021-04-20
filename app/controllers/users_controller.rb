@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @profile_image = ProfileImage.new(profile_image_params)
     @profile_image.user_id = current_user.id
     @profile_image.save
-    redirect_to user_path
+    redirect_to user_path(current_user.id)
   end
 
   def show
@@ -28,10 +28,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
-
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.update(user_params)
+      flash[:notice] = "User info was successfully updated."
+      redirect_to user_path(@user.id)
+    else
+    render "edit"
+    end
   end
 
 

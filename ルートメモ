@@ -24,7 +24,7 @@
                           PATCH  /users/:id(.:format)                                                                     users#update
                           PUT    /users/:id(.:format)                                                                     users#update
                           DELETE /users/:id(.:format)                                                                     users#destroy
-                    books GET    /books(.:format)                                                                         books#index
+                   ｛
                           POST   /books(.:format)                                                                         books#create
                  new_book GET    /books/new(.:format)                                                                     books#new
                 edit_book GET    /books/:id/edit(.:format)                                                                books#edit

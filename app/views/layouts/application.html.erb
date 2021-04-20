@@ -18,9 +18,9 @@
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
           <a class="navbar-brand" href="/">Bookers</a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-           </button>
+           <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+           <!--  <span class="navbar-toggler-icon"></span>-->
+           <!--</button>-->
 
            <div class="collapse navbar-collapse" id="navbarNavDropdown">
              <ul class="navbar-nav ml-auto">
@@ -34,7 +34,7 @@
                </li>
 
                <li class="nav-item active">
-                 <%= link_to "books", books_path ,class: "fas fa-book-open nav-link" %>
+                 <%= link_to "Books", books_path ,class: "fas fa-book-open nav-link" %>
                </li>
 
                <li class="nav-item active">
@@ -44,19 +44,19 @@
                <% else %>
 
                <li class="nav-item active">
-                 <%= link_to " Home", root_path ,class: "fas fa-home nav-link" %>
+                 <%= link_to "Home", root_path ,class: "fas fa-home nav-link" %>
                </li>
 
                <li class="nav-item active">
-                 <%= link_to " About", homes_about_path ,class: "fas fa-link nav-link" %>
+                 <%= link_to "About", home_about_path ,class: "fas fa-link nav-link" %>
                </li>
 
                <li class="nav-item active">
-                 <%= link_to " sign up", new_user_registration_path ,class: "fas fa-user-plus nav-link" %>
+                 <%= link_to "sign up", new_user_registration_path ,class: "fas fa-user-plus nav-link" %>
                </li>
 
                <li class="nav-item active">
-                 <%= link_to " login", new_user_session_path ,class: "fas fa-sign-in-alt nav-link" %>
+                 <%= link_to "login", new_user_session_path ,class: "fas fa-sign-in-alt nav-link" %>
                </li>
 
                <% end %>
@@ -71,9 +71,9 @@
 
     <main class="mb-auto">
         <div class="container">
-            
+
               <%= yield %>
-                
+
         </div>
     </main>
 

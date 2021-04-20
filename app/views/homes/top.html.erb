@@ -1,3 +1,5 @@
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
     <div class="mx-auto">
@@ -8,10 +10,10 @@
     
         <div class="btn-wrapper col-10 mx-auto">
           <div class="row">
-            <a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="/users/sign_in">Log in</a>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
           </div>
           <div class="row">
-            <a class="btn btn-success btn-sm btn-block sign_up" href="/users/sign_up">Sign Up</a>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
           </div>
         </div>
     
