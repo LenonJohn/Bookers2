@@ -11,6 +11,28 @@
         <th>introduction</th>
         <th><%= user.introduction %></th>
       </tr>
+      <tr>
+        <th>follows</th>
+        <th><%= link_to "#{user.followings.count}", user_followings_path(user.id) %></th>
+        <!--<th><%#= user.followings.count %></th>-->
+      </tr>
+      <tr>
+        <th>followers</th>
+        <th><%= link_to "#{user.followers.count}", user_followers_path(user.id) %></th>
+        <!--<th><%#= user.followers.count %></th>-->
+      </tr>
+      <tr>
+        <th>
+          <% if user.id != current_user.id %>
+            <% if current_user.following?(user) %>
+            <%= link_to "Unfollow", user_relationships_path(user.id), class: "btn btn-danger", method: :delete %>
+            <% else %>
+              <%= link_to "Follow", user_relationships_path(user.id), class: "btn btn-primary", method: :post %>
+            <% end %>
+          <% end %>
+        </th>
+        <th></th>
+      </tr>
     </tbody>
   </table>
 
