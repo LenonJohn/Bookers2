@@ -39,11 +39,9 @@
                  <td><%= link_to user_path(book.user) do %><p><%= attachment_image_tag(book.user, :profile_image, size:"40x40", fallback: "no_image.jpg") %></p><% end %></td>
                  <td><%= link_to book_path(book) do %><%= book.title %><% end %></td>
                  <td><%= book.body %></td>
-                 <% if book.favorited_by?(current_user) %>
-                 <td><%= link_to book_favorites_path(book), method: :delete do %>♥<%= book.favorites.count %><% end %></td>
-                 <% else %>
-                 <td><%= link_to book_favorites_path(book), method: :post do %>♡<%= book.favorites.count %><% end %></td>
-                 <% end %>
+                 <td id = "book_<%= book.id %>">
+                   <%= render "books/favorite", book: book %>
+                 </td>
                  <td><p>コメント数:<%= book.book_comments.count %></p></td>
               </tr>
             <% end %>
